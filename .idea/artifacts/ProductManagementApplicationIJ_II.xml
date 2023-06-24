@@ -1,0 +1,20 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="ProductManagementApplicationIJ_II">
+    <output-path>$PROJECT_DIR$/out/artifacts/ProductManagementApplicationIJ_II</output-path>
+    <root id="archive" name="ProductManagementApplicationIJ_II.war">
+      <element id="javaee-facet-resources" facet="ProductManagementApplicationIJ_II/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="mysql.connector.java" />
+          <element id="library" level="project" name="apache.struts.struts2.dojo.plugin" />
+          <element id="library" level="project" name="javax.servlet.api" />
+          <element id="library" level="project" name="commons-fileupload-1.4" />
+          <element id="library" level="project" name="commons-fileupload-1.41" />
+        </element>
+        <element id="directory" name="classes">
+          <element id="module-output" name="ProductManagementApplicationIJ_II" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>

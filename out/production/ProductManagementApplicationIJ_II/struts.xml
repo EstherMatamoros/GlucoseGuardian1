@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+    "http://struts.apache.org/dtds/struts-2.5.dtd">
+    
+<struts>
+	<package name="productManagementApp" extends="struts-default">
+		<interceptors>
+			<interceptor class="it.unicas.products.interceptors.LoginInterceptor"
+				name="loginInterceptor" />
+			<interceptor-stack name="loginStack">
+				<interceptor-ref name="loginInterceptor" />
+				<interceptor-ref name="defaultStack" />
+			</interceptor-stack>
+		</interceptors>
+		<default-interceptor-ref name="loginStack"/>
+		<action name="loginAction" class="it.unicas.products.action.LoginAction">
+			<result name="success" type="redirect">welcomeAction</result>
+			<result name="input">/login.jsp</result>
+		</action>
+		<action name="logoutAction" class="it.unicas.products.action.LogoutAction">
+			<result name="input">/login.jsp</result>
+		</action>
+		<action name="welcomeAction" class="it.unicas.products.action.WelcomeAction">
+			<result name="success">/welcome.jsp</result>
+			<result name="input">/login.jsp</result>
+		</action>
+		<action name="addAction" class="it.unicas.products.action.AddAction">
+			<result name="success" type="redirect">welcomeAction</result>
+			<result name="error">/error.jsp</result>
+			<result name="input">/addProduct.jsp</result>
+		</action>
+		<action name="updateDataAction" class="it.unicas.products.action.UpdateDataAction">
+			<result name="success">/updateProduct.jsp</result>
+			<result name="error">/error.jsp</result>
+		</action>
+		<action name="updateAction" class="it.unicas.products.action.UpdateAction">
+			<result name="success" type="redirect">welcomeAction</result>
+			<result name="error">/error.jsp</result>
+			<result name="input">/updateProduct.jsp</result>
+		</action>
+		<action name="deleteAction" class="it.unicas.products.action.DeleteAction">
+			<result name="success" type="redirect">welcomeAction</result>
+			<result name="error">/error.jsp</result>
+		</action>
+
+
+<!--  beganing of users //////////////////////////////////////////////////////////////////////-->
+		<action name="usersAddAction" class="it.unicas.products.action.users.AddAction">
+			<result name="success" type="redirect">welcomeAction</result>
+			<result name="error">/error.jsp</result>
+			<result name="input">/addProduct.jsp</result>
+		</action>
+
+		<action name="userManagementAction" class="it.unicas.products.action.users.userManagementAction">
+			<result name="success">/userManagment.jsp</result>
+			<result name="input">/userAdd.jsp</result>
+			<result name="error">/error.jsp</result>
+		</action>
+
+		<action name="updateUserAction" class="it.unicas.products.action.users.UpdateUserAction">
+			<result name="success">/login-register.jsp</result>
+			<result name="error">/error.jsp</result>
+			<result name="input">/userUpdate.jsp</result>
+		</action>
+
+<!--  ending of users //////////////////////////////////////////////////////////////////////-->
+
+<!--begining of glucose register-->
+		<action name="glucoseAddAction" class="it.unicas.products.action.glucose.AddAction">
+			<result name="success" type="redirect">glucoseManagementAction</result>
+			<result name="error">/error.jsp</result>
+			<result name="input">/glucoseAdd.jsp</result>
+		</action>
+
+		<action name="glucoseManagementAction" class="it.unicas.products.action.glucose.glucoseManagementAction">
+			<result name="success">/glucoseManagement.jsp</result>
+			<result name="input">/glucoseAdd.jsp</result>
+			<result name="error">/error.jsp</result>
+		</action>
+
+		<action name="glucoseManagementAction" class="it.unicas.products.action.glucose.glucoseManagementAction">
+			<result name="success">/glucosePage.jsp</result>
+			<result name="input">/glucoseAdd.jsp</result>
+			<result name="error">/error.jsp</result>
+		</action>
+
+		<action name="updateGlucoseAction" class="it.unicas.products.action.glucose.UpdateAction">
+			<result name="success">/glucosePage.jsp</result>
+			<result name="error">/error.jsp</result>
+			<result name="input">/glucoseUpdate.jsp</result>
+		</action>
+
+		<!--		end of registering glucose-->
+
+<!--		register diet -->
+		<action name="dietAddAction" class="it.unicas.products.action.diet.AddAction">
+			<result name="success" type="redirect">dietManagementAction</result>
+			<result name="error">/error.jsp</result>
+			<result name="input">/dietAdd.jsp</result>
+		</action>
+		<action name="dietManagementAction" class="it.unicas.products.action.diet.dietManagementAction">
+			<result name="success">/dietManagement.jsp</result>
+			<result name="input">/dietManagement.jsp</result>
+			<result name="error">/error.jsp</result>
+		</action>
+<!--		end register diet -->
+
+<!--		register exercise-->
+		<action name="exerciseAddAction" class="it.unicas.products.action.exercise.AddAction">
+			<result name="success" type="redirect">exerciseManagementAction</result>
+			<result name="error">/error.jsp</result>
+			<result name="input">/exerciseAdd.jsp</result>
+		</action>
+
+		<action name="exerciseManagementAction" class="it.unicas.products.action.exercise.exerciseManagementAction">
+			<result name="success">/exerciseManagement.jsp</result>
+			<result name="input">/exerciseAdd.jsp</result>
+			<result name="error">/error.jsp</result>
+		</action>
+
+<!--		end exercise registration-->
+
+<!--		begin medication registration-->
+			<action name="medicationAddAction" class="it.unicas.products.action.medication.AddAction">
+			<result name="success" type="redirect">medicationManagementAction</result>
+			<result name="error">/error.jsp</result>
+			<result name="input">/medicationAdd.jsp</result>
+		</action>
+		<action name="medicationManagementAction" class="it.unicas.products.action.medication.medicationManagementAction">
+			<result name="success">/medicationManagement.jsp</result>
+			<result name="input">/medicationAdd.jsp</result>
+			<result name="error">/error.jsp</result>
+		</action>
+		<action name="updateMedicationAction" class="it.unicas.products.action.medication.UpdateAction">
+			<result name="success">medicationManagementAction</result>
+			<result name="error">/error.jsp</result>
+			<result name="input">/medicationUpdate.jsp</result>
+		</action>
+
+		<!--		end medication registration-->
+
+
+	</package>
+</struts>
