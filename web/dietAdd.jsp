@@ -19,7 +19,11 @@
 		<s:form action="dietAddAction" class="formTable">
 			<s:textfield name="meal" label="Meal" class="formTextField"/>
 			<s:textfield name="carbs" label="No. of carbs" class="formTextField"/>
-			<pippo:datetimepicker name="datetime" label="Day" displayFormat="dd-MMM-yyyy"/>
+			<pippo:datetimepicker name="datetime" label="Set Time" displayFormat="HH:mm:ss" />
+<%--			<s:textfield name="datetime" label="Day" class="formTextField">--%>
+<%--				<s:param name="type">date</s:param>--%>
+<%--				<s:param name="displayFormat">dd-MMM-yyyy</s:param>--%>
+<%--			</s:textfield>--%>
 			<s:submit value="Add Diet" class="actionBtn"/>
 		</s:form>
 	</div>

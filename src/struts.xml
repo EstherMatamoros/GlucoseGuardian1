@@ -16,17 +16,17 @@
 		<default-interceptor-ref name="loginStack"/>
 		<action name="loginAction" class="it.unicas.products.action.LoginAction">
 			<result name="success" type="redirect">welcomeAction</result>
-			<result name="input">/login.jsp</result>
+			<result name="input">/welcomepage.jsp</result>
 		</action>
 		<action name="logoutAction" class="it.unicas.products.action.LogoutAction">
-			<result name="input">/login.jsp</result>
+			<result name="input">/welcomepage.jsp</result>
 		</action>
 		<action name="welcomeAction" class="it.unicas.products.action.WelcomeAction">
 			<result name="success">/welcome.jsp</result>
-			<result name="input">/login.jsp</result>
+			<result name="input">/welcomepage.jsp</result>
 		</action>
 		<action name="addAction" class="it.unicas.products.action.AddAction">
-			<result name="success" type="redirect">welcomeAction</result>
+			<result name="success" type="redirect">/welcome.jsp</result>
 			<result name="error">/error.jsp</result>
 			<result name="input">/addProduct.jsp</result>
 		</action>
@@ -45,7 +45,7 @@
 		</action>
 
 
-<!--  beganing of users //////////////////////////////////////////////////////////////////////-->
+<!--  beginning of users //////////////////////////////////////////////////////////////////////-->
 		<action name="usersAddAction" class="it.unicas.products.action.users.AddAction">
 			<result name="success" type="redirect">welcomeAction</result>
 			<result name="error">/error.jsp</result>
@@ -59,14 +59,14 @@
 		</action>
 
 		<action name="updateUserAction" class="it.unicas.products.action.users.UpdateUserAction">
-			<result name="success">/login-register.jsp</result>
+			<result name="success">/welcomepage.jsp</result>
 			<result name="error">/error.jsp</result>
 			<result name="input">/userUpdate.jsp</result>
 		</action>
 
 <!--  ending of users //////////////////////////////////////////////////////////////////////-->
 
-<!--begining of glucose register-->
+		<!--begining of glucose register-->
 		<action name="glucoseAddAction" class="it.unicas.products.action.glucose.AddAction">
 			<result name="success" type="redirect">glucoseManagementAction</result>
 			<result name="error">/error.jsp</result>
@@ -79,16 +79,21 @@
 			<result name="error">/error.jsp</result>
 		</action>
 
-		<action name="glucoseManagementAction" class="it.unicas.products.action.glucose.glucoseManagementAction">
-			<result name="success">/glucosePage.jsp</result>
-			<result name="input">/glucoseAdd.jsp</result>
+		<action name="updateGlucoseDataAction" class="it.unicas.products.action.glucose.UpdateDataAction">
+			<result name="success">/glucoseUpdate.jsp</result>
 			<result name="error">/error.jsp</result>
 		</action>
 
 		<action name="updateGlucoseAction" class="it.unicas.products.action.glucose.UpdateAction">
-			<result name="success">/glucosePage.jsp</result>
+			<result name="success" type="redirect">glucoseManagementAction</result>
 			<result name="error">/error.jsp</result>
 			<result name="input">/glucoseUpdate.jsp</result>
+		</action>
+
+
+		<action name="deleteGlucoseAction" class="it.unicas.products.action.glucose.DeleteAction">
+			<result name="success" type="redirect">welcomeAction</result>
+			<result name="error">/error.jsp</result>
 		</action>
 
 		<!--		end of registering glucose-->
@@ -104,6 +109,19 @@
 			<result name="input">/dietManagement.jsp</result>
 			<result name="error">/error.jsp</result>
 		</action>
+		<action name="updateDietDataAction" class="it.unicas.products.action.diet.UpdateDataAction">
+			<result name="success">/dietUpdate.jsp</result>
+			<result name="error">/error.jsp</result>
+		</action>
+		<action name="updateDietAction" class="it.unicas.products.action.diet.UpdateAction">
+			<result name="success" type="redirect">dietManagementAction</result>
+			<result name="error">/error.jsp</result>
+			<result name="input">/dietUpdate.jsp</result>
+		</action>
+		<action name="deleteDietAction" class="it.unicas.products.action.diet.DeleteAction">
+			<result name="success" type="redirect">welcomeAction</result>
+			<result name="error">/error.jsp</result>
+		</action>
 <!--		end register diet -->
 
 <!--		register exercise-->
@@ -112,17 +130,29 @@
 			<result name="error">/error.jsp</result>
 			<result name="input">/exerciseAdd.jsp</result>
 		</action>
-
 		<action name="exerciseManagementAction" class="it.unicas.products.action.exercise.exerciseManagementAction">
 			<result name="success">/exerciseManagement.jsp</result>
 			<result name="input">/exerciseAdd.jsp</result>
+			<result name="error">/error.jsp</result>
+		</action>
+		<action name="updateExerciseDataAction" class="it.unicas.products.action.exercise.UpdateDataAction">
+			<result name="success">/exerciseUpdate.jsp</result>
+			<result name="error">/error.jsp</result>
+		</action>
+		<action name="updateExerciseAction" class="it.unicas.products.action.exercise.UpdateAction">
+			<result name="success" type="redirect">exerciseManagementAction</result>
+			<result name="error">/error.jsp</result>
+			<result name="input">/exerciseUpdate.jsp</result>
+		</action>
+		<action name="deleteExerciseAction" class="it.unicas.products.action.exercise.DeleteAction">
+			<result name="success" type="redirect">welcomeAction</result>
 			<result name="error">/error.jsp</result>
 		</action>
 
 <!--		end exercise registration-->
 
 <!--		begin medication registration-->
-			<action name="medicationAddAction" class="it.unicas.products.action.medication.AddAction">
+		<action name="medicationAddAction" class="it.unicas.products.action.medication.AddAction">
 			<result name="success" type="redirect">medicationManagementAction</result>
 			<result name="error">/error.jsp</result>
 			<result name="input">/medicationAdd.jsp</result>
@@ -132,14 +162,47 @@
 			<result name="input">/medicationAdd.jsp</result>
 			<result name="error">/error.jsp</result>
 		</action>
+		<action name="updateMedicationDataAction" class="it.unicas.products.action.medication.UpdateDataAction">
+			<result name="success">/medicationUpdate.jsp</result>
+			<result name="error">/error.jsp</result>
+		</action>
 		<action name="updateMedicationAction" class="it.unicas.products.action.medication.UpdateAction">
-			<result name="success">medicationManagementAction</result>
+			<result name="success" type="redirect">medicationManagementAction</result>
 			<result name="error">/error.jsp</result>
 			<result name="input">/medicationUpdate.jsp</result>
 		</action>
+		<action name="deleteMedicationAction" class="it.unicas.products.action.medication.DeleteAction">
+			<result name="success" type="redirect">welcomeAction</result>
+			<result name="error">/error.jsp</result>
+		</action>
+
 
 		<!--		end medication registration-->
-
+<!--begin appointment registration-->
+		<action name="appointmentAddAction" class="it.unicas.products.action.appointments.AddAction">
+			<result name="success" type="redirect">appointmentManagementAction</result>
+			<result name="error">/error.jsp</result>
+			<result name="input">/appointmentAdd.jsp</result>
+		</action>
+		<action name="appointmentManagementAction" class="it.unicas.products.action.appointments.appointmentManagementAction">
+			<result name="success">/appointmentManagement.jsp</result>
+			<result name="input">/appointmentAdd.jsp</result>
+			<result name="error">/error.jsp</result>
+		</action>
+		<action name="updateAppointmentDataAction" class="it.unicas.products.action.appointments.UpdateDataAction">
+			<result name="success">/appointmentUpdate.jsp</result>
+			<result name="error">/error.jsp</result>
+		</action>
+		<action name="updateAppointmentAction" class="it.unicas.products.action.appointments.UpdateAction">
+			<result name="success" type="redirect">appointmentManagementAction</result>
+			<result name="error">/error.jsp</result>
+			<result name="input">/appointmentUpdate.jsp</result>
+		</action>
+		<action name="deleteAppointmentAction" class="it.unicas.products.action.appointments.DeleteAction">
+			<result name="success" type="redirect">welcomeAction</result>
+			<result name="error">/error.jsp</result>
+		</action>
+<!--		end appointments registration-->
 
 	</package>
 </struts>

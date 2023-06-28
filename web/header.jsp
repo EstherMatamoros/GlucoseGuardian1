@@ -3,13 +3,13 @@
 
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+    <title>Welcome</title>
     <style>
         /* CSS styles for the subnavigation bar */
         .navbar {
             overflow: hidden;
-            background-color: lightskyblue;
+            background-color: dodgerblue;
         }
 
         /* Navigation links */
@@ -42,7 +42,7 @@
 
         /* Add a red background color to navigation links on hover */
         .navbar a:hover, .subnav:hover .subnavbtn {
-            background-color: lightskyblue;
+            background-color: dodgerblue;
         }
 
         /* Style the subnav content - positioned absolute */
@@ -50,7 +50,7 @@
             display: none;
             position: absolute;
             left: 0;
-            background-color: lightskyblue;
+            background-color: dodgerblue;
             width: 100%;
             z-index: 1;
         }
@@ -64,8 +64,8 @@
 
         /* Add a grey background color on hover */
         .subnav-content a:hover {
-            background-color: #eee;
-            color: blue;
+            background-color: dodgerblue;
+            color: dodgerblue;
         }
 
         /* When you move the mouse over the subnav container, open the subnav content */
@@ -77,9 +77,9 @@
 </head>
 <body>
 <%
-if(session.getAttribute("loggedinUser") == null) {
-	response.sendRedirect("login.jsp");
-}
+    if(session.getAttribute("loggedinUser") == null) {
+        response.sendRedirect("login.jsp");
+    }
 %>
 
 <!-- Load font awesome icons -->
@@ -90,14 +90,11 @@ if(session.getAttribute("loggedinUser") == null) {
     <div class="subnav">
         <button class="subnavbtn">Add Information <i class="fa fa-caret-down"></i></button>
         <div class="subnav-content">
-            <%--            <a href="userAdd.jsp">Add User</a>--%>
             <a href="glucoseAdd.jsp">Add Glucose</a>
             <a href="dietAdd.jsp">Add Meals</a>
             <a href="exerciseAdd.jsp">Add Exercise</a>
             <a href="medicationAdd.jsp">Add Medication</a>
-            <a href="glucosePage.jsp">Glucose Page</a>
-            <a href="userUpdate.jsp">Account</a>
-
+            <a href="appointmentAdd.jsp">Add Appointment</a>
 
         </div>
     </div>
@@ -105,24 +102,17 @@ if(session.getAttribute("loggedinUser") == null) {
     <div class="subnav">
         <button class="subnavbtn">See Logs <i class="fa fa-caret-down"></i></button>
         <div class="subnav-content">
-            <%--            <a href="userManagementAction">Users</a>--%>
             <a href="glucoseManagementAction">Glucose Track</a>
             <a href="dietManagementAction">Meals</a>
             <a href="exerciseManagementAction">Exercise</a>
-            <a href="medicationManagementAction">Medication</a>
+            <a href="medicationManagementAction">Medications</a>
+            <a href="appointmentManagementAction">Appointments</a>
+
         </div>
     </div>
 
-    <div class="subnav">
-        <button class="subnavbtn">Updates<i class="fa fa-caret-down"></i></button>
-        <div class="subnav-content">
-            <%--            <a href="userManagementAction">Users</a>--%>
-            <a href="glucoseUpdate.jsp">Update Glucose</a>
-<%--            <a href="dietManagementAction">Meals</a>--%>
-<%--            <a href="exerciseManagementAction">Exercise</a>--%>
-<%--            <a href="medicationManagementAction">Medication</a>--%>
-        </div>
-    </div>
+    <a href="userUpdate.jsp" style="float:right">Account</a>
+
     <a href="logoutAction" style="float:right">Logout</a>
 </div>
 

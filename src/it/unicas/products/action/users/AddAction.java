@@ -9,17 +9,8 @@ import java.util.Date;
 
 public class AddAction extends ActionSupport {
 
-//    private int idlogin_info;
     private String user_name;
     private String password;
-
-//    public int getIdlogin_info() {
-//        return idlogin_info;
-//    }
-//
-//    public void setIdlogin_info(int idlogin_info) {
-//        this.idlogin_info = idlogin_info;
-//    }
 
     public String getUser_name() {
         return user_name;
@@ -42,7 +33,6 @@ public class AddAction extends ActionSupport {
         SimpleDateFormat formatter = new SimpleDateFormat("dd-MMM-yyyy");
         String createdDateStr = formatter.format(new Date());
         Users users = new Users(user_name,password);
-//        idlogin_info,
         int recordAdded = usersManagementDAO.addProduct(users);
         if (recordAdded == 1) {
             statusCode = SUCCESS;

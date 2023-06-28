@@ -21,6 +21,7 @@ public class exerciseManagementAction extends ActionSupport {
     private Integer amount_time;
     private Date date;
     private Integer user_id;
+    private  Integer exercise_id;
 
     public void initializeProducts() {
         System.out.println("****** Filter Data ******");
@@ -82,6 +83,14 @@ public class exerciseManagementAction extends ActionSupport {
         this.user_id = user_id;
     }
 
+    public Integer getExercise_id() {
+        return exercise_id;
+    }
+
+    public void setExercise_id(Integer exercise_id) {
+        this.exercise_id = exercise_id;
+    }
+
     @Override
     public String toString() {
         return "exerciseManagementAction{" +
@@ -90,6 +99,7 @@ public class exerciseManagementAction extends ActionSupport {
                 ", amount_time=" + amount_time +
                 ", date=" + date +
                 ", user_id=" + user_id +
+                ", exercise_id=" + exercise_id +
                 '}';
     }
 }

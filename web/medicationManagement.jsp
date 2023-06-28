@@ -18,10 +18,6 @@
 		<h2>Medication Management</h2>
 		<s:form action="medicationManagementAction" class="filterPanel">
 			<s:textfield name="name" label="Medication Name" class="formTextField"/>
-			<s:textfield name="dose" label="Dose recommended(mg)" class="formTextField"/>
-			<s:textfield name="treatment_for" label="Treatment for" class="formTextField"/>
-			<pippo:datetimepicker name="date_started" label="Start Date" displayFormat="dd-MMM-yyyy" />
-			<pippo:datetimepicker name="date_end" label="End Date" displayFormat="dd-MMM-yyyy" />
 			<s:submit value="Search Medication" class="actionBtn"/>
 		</s:form>
 	</div>
@@ -57,12 +53,12 @@
 				</td>
 				<td>
 					<a
-					href="updateMedicationAction?name=<s:property value="#medicationInfo.name"/>">
+					href="updateMedicationDataAction?id=<s:property value="#medicationInfo.id"/>&name=<s:property value="#medicationInfo.name"/>&user_id=<s:property value="#medicationInfo.user_id"/>&dose=<s:property value="#medicationInfo.dose"/>&treatment_for=<s:property value="#medicationInfo.treatment_for"/>&date_started=<s:property value="#medicationInfo.date_started"/>&date_end=<s:property value="#medicationInfo.date_end"/>">
 						<button class="actionBtn">Update</button>
 					</a>
 				</td>
 				<td>
-					<a href="deleteAction?productId=<s:property value="#medicationInfo.name"/>">
+					<a href="deleteMedicationAction?id=<s:property value="#medicationInfo.id"/>">
 						<button class="actionBtn">Delete</button>
 					</a>
 				</td>

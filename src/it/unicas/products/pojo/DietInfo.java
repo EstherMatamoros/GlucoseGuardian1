@@ -8,13 +8,13 @@ public class DietInfo {
     private String meal;
     private Integer carbs;
     private String datetime;
+    private Integer diet_id;
 
     public DietInfo(String meal, Integer carbs, String datetime) {
         this.meal = meal;
         this.carbs = carbs;
         this.datetime = datetime;
     }
-
 
     public Integer getUser_id() {
         return user_id;
@@ -48,6 +48,14 @@ public class DietInfo {
         this.datetime = datetime;
     }
 
+    public Integer getDiet_id() {
+        return diet_id;
+    }
+
+    public void setDiet_id(Integer diet_id) {
+        this.diet_id = diet_id;
+    }
+
     @Override
     public String toString() {
         return "DietInfo{" +
@@ -55,6 +63,7 @@ public class DietInfo {
                 ", meal='" + meal + '\'' +
                 ", carbs=" + carbs +
                 ", datetime='" + datetime + '\'' +
+                ", diet_id=" + diet_id +
                 '}';
     }
 }

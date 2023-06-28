@@ -3,10 +3,14 @@ package it.unicas.products.pojo;
 import java.sql.Timestamp;
 
 public class Glucose {
-	private Integer user_id;
 	private Integer measurement;
 	private String createdDate;
+
+	private Integer user_id;
+
 	private Timestamp timestamp;
+	private Integer id;
+
 
 	public Glucose() {
 		// TODO Auto-generated constructor stub
@@ -18,16 +22,8 @@ public class Glucose {
 		this.createdDate = createdDate;
 	}
 
-	public Integer getUser_id() {
-		return user_id;
-	}
-
-	public void setUser_id(Integer user_id) {
-		this.user_id = user_id;
-	}
-
 	public Integer getMeasurement() {
-		return measurement != null ? measurement : 0; // Return 0 if measurement is null
+		return measurement;
 	}
 
 	public void setMeasurement(Integer measurement) {
@@ -42,6 +38,14 @@ public class Glucose {
 		this.createdDate = createdDate;
 	}
 
+	public Integer getUser_id() {
+		return user_id;
+	}
+
+	public void setUser_id(Integer user_id) {
+		this.user_id = user_id;
+	}
+
 	public Timestamp getTimestamp() {
 		return timestamp;
 	}
@@ -50,13 +54,22 @@ public class Glucose {
 		this.timestamp = timestamp;
 	}
 
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
 	@Override
 	public String toString() {
 		return "Glucose{" +
-				"user_id=" + user_id +
-				", measurement=" + measurement +
+				"measurement=" + measurement +
 				", createdDate='" + createdDate + '\'' +
+				", user_id=" + user_id +
 				", timestamp=" + timestamp +
+				", id=" + id +
 				'}';
 	}
 }

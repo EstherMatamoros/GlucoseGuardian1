@@ -18,7 +18,6 @@
 		<h2>Exercise Management</h2>
 		<s:if test="exerciseInfos !=null && !exerciseInfos.isEmpty()">
 			<s:form id="exerciseForm" action="exerciseManagementAction" class="filterPanel">
-				<s:textfield name="burned_calories" label="Calories Burned (cal)" class="formTextField"/>
 				<s:textfield name="amount_time" label="Duration of exercise (min)" class="formTextField"/>
 				<pippo:datetimepicker name="date" label="Date" displayFormat="dd-MMM-yyyy" />
 				<s:submit value="Search Exercise" class="actionBtn"/>
@@ -34,6 +33,7 @@
 					<th>Calories Burned (Cal)</th>
 					<th>Duration of exercise (min)</th>
 					<th>Date</th>
+					<th colspan="2">Actions</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -49,6 +49,15 @@
 						<s:property value="#exerciseInfo.date"/>
 					</td>
 					<td>
+						<a href="updateExerciseDataAction?exercise_id=<s:property value="#exerciseInfo.exercise_id"/>&burned_calories=<s:property value="#exerciseInfo.burned_calories"/>&user_id=<s:property value="#exerciseInfo.user_id"/>&amount_time=<s:property value="#exerciseInfo.amount_time"/>&date=<s:property value="#exerciseInfo.date"/>">
+							<button class="actionBtn">Update</button>
+						</a>
+					</td>
+					<td>
+						<a href="deleteExerciseAction?exercise_id=<s:property value="#exerciseInfo.exercise_id"/>">
+							<button class="actionBtn">Delete</button>
+						</a>
+					</td>
 				</tr>
 			</s:iterator>
 			</tbody>

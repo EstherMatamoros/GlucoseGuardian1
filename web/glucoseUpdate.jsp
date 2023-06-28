@@ -18,8 +18,6 @@
 		<h2>Update Glucose Measurement</h2>
 		<s:form action="updateGlucoseAction" class="formTable">
 			<s:textfield name="measurement" label="Measurement (mg/dl)" class="formTextField"/>
-<%--			<pippo:datetimepicker name="createdDate" label="Date of Measurement" displayFormat="dd-MMM-yyyy"/>--%>
-<%--			<input type="date" name="createdDate" label="Date of Measurement" class="formTextField"/>--%>
 			<s:textfield name="createdDate" label="Date of Measurement" class="formTextField">
 				<s:param name="type">date</s:param>
 				<s:param name="displayFormat">dd-MMM-yyyy</s:param>

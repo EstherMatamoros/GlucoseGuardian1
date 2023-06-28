@@ -5,8 +5,9 @@ import it.unicas.products.dao.glucoseManagementDAO;
 import it.unicas.products.pojo.Glucose;
 import org.apache.struts2.ServletActionContext;
 
+import java.sql.Date;
+import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
 
 public class glucoseManagementAction extends ActionSupport {
@@ -14,6 +15,8 @@ public class glucoseManagementAction extends ActionSupport {
     private Integer measurement;
     private Date createdDate;
     private Integer user_id;
+    private Timestamp timestamp;
+    private Integer id;
 
     public void initializeProducts() {
         System.out.println("****** Filter Data ******");
@@ -27,6 +30,8 @@ public class glucoseManagementAction extends ActionSupport {
             createdDateStr = formatter.format(createdDate);
         }
         glucoses = glucoseManagementDAO.getAllGlucose(measurement, createdDateStr, user_id);
+        System.out.println("glucoseManagementDAO.getAllGlucose(measurement, createdDateStr, user_id); glucoses" + glucoses);
+
     }
 
     public String execute() {
@@ -66,6 +71,22 @@ public class glucoseManagementAction extends ActionSupport {
         this.user_id = user_id;
     }
 
+    public Timestamp getTimestamp() {
+        return timestamp;
+    }
+
+    public void setTimestamp(Timestamp timestamp) {
+        this.timestamp = timestamp;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
     @Override
     public String toString() {
         return "glucoseManagementAction{" +
@@ -73,6 +94,8 @@ public class glucoseManagementAction extends ActionSupport {
                 ", measurement=" + measurement +
                 ", createdDate=" + createdDate +
                 ", user_id=" + user_id +
+                ", timestamp=" + timestamp +
+                ", id=" + id +
                 '}';
     }
 }

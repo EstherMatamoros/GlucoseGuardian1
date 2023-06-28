@@ -1,6 +1,7 @@
 package it.unicas.products.dao;
 
 import it.unicas.products.dbutil.DBUtil;
+import it.unicas.products.pojo.ExerciseInfo;
 import it.unicas.products.pojo.MedicationInfo;
 import it.unicas.products.pojo.Users;
 import org.apache.struts2.ServletActionContext;
@@ -69,7 +70,9 @@ public class medicationManagementDAO{
             ResultSet rs= st.executeQuery("SELECT * FROM products.medication_info "+whereClause);
             while(rs.next())
             {
-                    MedicationInfo medicationInfo = new MedicationInfo(rs.getString("name"),rs.getInt("dose"),rs.getString("treatment_for"),rs.getString("date_started"),rs.getString("date_end"));
+                MedicationInfo medicationInfo = new MedicationInfo(rs.getString("name"),rs.getInt("dose"),rs.getString("treatment_for"),rs.getString("date_started"),rs.getString("date_end"));
+                medicationInfo.setUser_id(rs.getInt("user_id"));
+                medicationInfo.setId(rs.getInt("id"));
                 medicationList.add(medicationInfo);
             }
 
@@ -85,12 +88,30 @@ public class medicationManagementDAO{
     }
 
 //    add a getMedicationBy LoginINfo
+    public static MedicationInfo getMedicationByID(Integer id) {
+        MedicationInfo medicationInfo = null;
+        try {
+            Connection conn = DBUtil.getConnection();
+            PreparedStatement ps = conn.prepareStatement("SELECT name, dose, treatment_for, date_started, date_end, user_id FROM medication_info WHERE id = ?", Statement.RETURN_GENERATED_KEYS);
+            ps.setInt(1, id);
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                int userId = rs.getInt("user_id");
+                medicationInfo = new MedicationInfo(rs.getString("name"),rs.getInt("dose"),rs.getString("treatment_for"),rs.getString("date_started"),rs.getString("date_end"));
+                medicationInfo.setId(id);
+                medicationInfo.setUser_id(userId);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return medicationInfo;
+    }
 
     public static int addMedication(MedicationInfo medicationInfo, int userId) {
         int status = 0;
         try {
             Connection conn = DBUtil.getConnection();
-            PreparedStatement ps = conn.prepareStatement("INSERT INTO medication_info (name, dose, treatment_for, date_started, date_end, user_id) VALUES(?,?,?,?,?,?)");
+            PreparedStatement ps = conn.prepareStatement("INSERT INTO medication_info (name, dose, treatment_for, date_started, date_end, user_id) VALUES(?,?,?,?,?,?)", Statement.RETURN_GENERATED_KEYS);
             ps.setString(1, medicationInfo.getName());
             ps.setInt(2, medicationInfo.getDose());
             ps.setString(3, medicationInfo.getTreatment_for());
@@ -98,7 +119,13 @@ public class medicationManagementDAO{
             ps.setString(5, medicationInfo.getDate_end());
             ps.setInt(6, userId);
             status = ps.executeUpdate();
-            DBUtil.closeConnection(conn);
+            ResultSet generatedKeys = ps.getGeneratedKeys();
+            if (generatedKeys.next()) {
+                int generatedId = generatedKeys.getInt(1);
+                medicationInfo.setId(generatedId);
+            }
+
+//            DBUtil.closeConnection(conn);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -107,17 +134,29 @@ public class medicationManagementDAO{
 
     public static int updateMedication(MedicationInfo medicationInfo) {
         int status = 0;
-        Integer user_id = (Integer) ServletActionContext.getRequest().getSession().getAttribute("loggedInUserId");
 
         try {
             Connection conn = DBUtil.getConnection();
-            PreparedStatement ps = conn.prepareStatement("UPDATE medication_info SET name=?, dose=?, treatment_for=?, date_started=?, date_end=?  WHERE user_id=?");
+            PreparedStatement ps = conn.prepareStatement("UPDATE medication_info SET name=?, dose=?, treatment_for=?, date_started=?, date_end=?  WHERE user_id=? AND id =?", Statement.RETURN_GENERATED_KEYS);
             ps.setString(1, medicationInfo.getName());
             ps.setInt(2, medicationInfo.getDose());
             ps.setString(3, medicationInfo.getTreatment_for());
             ps.setString(4, medicationInfo.getDate_started());
             ps.setString(5, medicationInfo.getDate_end());
-            ps.setInt(6, user_id);
+            ps.setInt(6, medicationInfo.getUser_id());
+            ps.setInt(7, medicationInfo.getId());
+            status = ps.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return status;
+    }
+    public static int deleteMedicationInfo(Integer id) {
+        int status = 0;
+        try {
+            Connection conn = DBUtil.getConnection();
+            PreparedStatement ps = conn.prepareStatement("DELETE FROM medication_info where id = ?");
+            ps.setInt(1, id);
             status = ps.executeUpdate();
         } catch (Exception e) {
             e.printStackTrace();

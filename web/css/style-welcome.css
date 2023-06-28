@@ -1,14 +1,18 @@
-*{
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+* {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
 }
+
 body {
-    background-image: linear-gradient(to right, rgba(250, 128, 114, 0.75), rgba(0, 191, 255, 0.8)), url("../images/welcome.jpg");
-    background-size: cover;
-    background-attachment: fixed;
-    color: white;
-    font-family: 'Fira Sans', sans-serif;
+    background-color: white;
+    color: dodgerblue;
+    font-family: "Poppins", sans-serif;
+}
+h1, p {
+    color: dodgerblue;
 }
 nav {
     width: 100%;
@@ -17,29 +21,34 @@ nav {
     justify-content: space-between;
     padding: 35px 5%;
 }
-nav .logo{
+
+nav .logo {
     font-size: 30px;
     font-weight: 700;
 }
-nav ul{
+
+nav ul {
     display: flex;
     list-style: none;
 }
-nav ul li{
+
+nav ul li {
     padding: 8px 15px;
     border-radius: 10px;
     transition: 0.2s ease-in;
 }
-nav ul li a{
-    color: white;
+
+nav ul li a {
+    color: dodgerblue;
     font-size: 20px;
     font-weight: 500;
     text-decoration: none;
 }
+
 nav .navLinks button {
     padding: 2px 20px;
     border-radius: 10px;
-    color: rgba(0, 191, 255, 1); /* Blue color */
+    color: dodgerblue;
     font-size: 16px;
     border-style: none;
     font-weight: 700;
@@ -47,9 +56,10 @@ nav .navLinks button {
 }
 
 nav ul li:hover {
-    background-color: rgb(0, 191, 255);
+    background-color: lightskyblue;
 }
-nav .menubtn{
+
+nav .menubtn {
     font-size: 30px;
     font-weight: bolder;
     cursor: pointer;
@@ -58,30 +68,32 @@ nav .menubtn{
 
 /* responsive navbar css */
 @media screen and (max-width: 600px) {
-    nav .menubtn{
+    nav .menubtn {
         display: flex;
     }
-    nav .navLinks{
+
+    nav .navLinks {
         display: none;
     }
+
     .sideNav {
         display: block !important;
     }
 }
 
-.sideNav{
+.sideNav {
     height: 100%;
     position: fixed;
     top: 0;
     right: 0%;
-    background-color: rgb(0, 191, 255);
+    background-color: dodgerblue;
     overflow-x: hidden;
     transition: 0.3s ease-in;
     padding-top: 60px;
     display: none;
 }
 
-.sideNav a{
+.sideNav a {
     padding: 8px 8px 8px 40px;
     display: block;
     font-size: 25px;
@@ -90,18 +102,21 @@ nav .menubtn{
     transition: 0.3s;
     text-decoration: none;
 }
+
 .sideNav a button {
     padding: 10px 20px;
     border-radius: 10px;
-    color: rgb(0, 191, 255);
+    color:dodgerblue;
     font-size: 16px;
     border-style: none;
     font-weight: 700;
 }
-.sideNav a:hover{
+
+.sideNav a:hover {
     color: white;
 }
-.sideNav .closeBtn{
+
+.sideNav .closeBtn {
     position: absolute;
     top: 10px;
     right: 25px;
@@ -109,32 +124,37 @@ nav .menubtn{
     margin-left: 50px;
 }
 
-.row{
+.row {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin: 2% 5%;
 }
+
 .row .column1 {
     padding-right: 50px;
 }
+
 .column1 h1 {
     font-size: 60px;
     margin-bottom: 10px;
 }
+
 .column1 p {
     font-size: 25px;
     margin-bottom: 20px;
 }
+
 .column1 button {
     width: 150px;
     padding: 12px 20px;
     border-radius: 20px;
     border-style: none;
-    color: rgb(0, 191, 255);
+    color:dodgerblue;
     font-size: 17px;
     font-weight: 600;
 }
+
 /* Header content responsive */
 @media screen and (max-width: 980px) {
     .column2 img {
@@ -143,7 +163,7 @@ nav .menubtn{
     .column1 h1 {
         font-size: 40px;
     }
-    .column1 p{
+    .column1 p {
         font-size: 17px;
     }
     .row {
@@ -152,13 +172,11 @@ nav .menubtn{
 }
 
 @media screen and (max-width: 600px) {
-
     .column1 h1 {
         font-size: 35px;
     }
     .row {
         flex-direction: column;
-
     }
     .row .column1 {
         padding: 30px;

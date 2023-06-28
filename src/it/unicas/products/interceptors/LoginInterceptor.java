@@ -37,5 +37,4 @@ public class LoginInterceptor implements Interceptor {
 		}
 		return ai.invoke();
 	}
-
 }

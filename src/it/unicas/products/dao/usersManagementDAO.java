@@ -1,7 +1,6 @@
 package it.unicas.products.dao;
 
 import it.unicas.products.dbutil.DBUtil;
-import it.unicas.products.pojo.Product;
 import it.unicas.products.pojo.Users;
 import org.apache.struts2.ServletActionContext;
 

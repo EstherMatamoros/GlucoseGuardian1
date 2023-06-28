@@ -33,6 +33,8 @@
 				<th>Meal</th>
 				<th>Carbs</th>
 				<th>Time</th>
+				<th colspan="2">Actions</th>
+
 			</tr>
 			</thead>
 
@@ -47,6 +49,16 @@
 					</td>
 					<td>
 						<s:property value="#dietInfo.datetime"/>
+					</td>
+					<td>
+						<a href="updateDietDataAction?diet_id=<s:property value="#dietInfo.diet_id"/>&meal=<s:property value="#dietInfo.meal"/>&user_id=<s:property value="#dietInfo.user_id"/>&carbs=<s:property value="#dietInfo.carbs"/>&datetime=<s:property value="#dietInfo.datetime"/>">
+							<button class="actionBtn">Update</button>
+						</a>
+					</td>
+					<td>
+						<a href="deleteDietAction?diet_id=<s:property value="#dietInfo.diet_id"/>">
+							<button class="actionBtn">Delete</button>
+						</a>
 					</td>
 				</tr>
 			</s:iterator>

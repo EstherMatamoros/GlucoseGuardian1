@@ -6,6 +6,7 @@ public class ExerciseInfo {
     private Integer burned_calories;
     private Integer amount_time;
     private String date;
+    private Integer exercise_id;
 
     public ExerciseInfo(Integer burned_calories, Integer amount_time, String date) {
         this.burned_calories = burned_calories;
@@ -45,6 +46,14 @@ public class ExerciseInfo {
         this.date = date;
     }
 
+    public Integer getExercise_id() {
+        return exercise_id;
+    }
+
+    public void setExercise_id(Integer exercise_id) {
+        this.exercise_id = exercise_id;
+    }
+
     @Override
     public String toString() {
         return "ExerciseInfo{" +
@@ -52,6 +61,7 @@ public class ExerciseInfo {
                 ", burned_calories=" + burned_calories +
                 ", amount_time=" + amount_time +
                 ", date='" + date + '\'' +
+                ", exercise_id=" + exercise_id +
                 '}';
     }
 }

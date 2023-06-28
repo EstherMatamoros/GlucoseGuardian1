@@ -19,7 +19,11 @@
 		<s:form action="exerciseAddAction" class="formTable">
 			<s:textfield name="burned_calories" label="Calories Burned (cal)" class="formTextField"/>
 			<s:textfield name="amount_time" label="Amount of time of exercise (min)" class="formTextField"/>
-			<pippo:datetimepicker name="date" label="Date" displayFormat="dd-MMM-yyyy"/>
+<%--			<pippo:datetimepicker name="date" label="Date" displayFormat="dd-MMM-yyyy"/>--%>
+			<s:textfield name="date" label="Date of Measurement" class="formTextField">
+				<s:param name="type">date</s:param>
+				<s:param name="displayFormat">dd-MMM-yyyy</s:param>
+			</s:textfield>
 			<s:submit value="Add Exercise" class="actionBtn"/>
 		</s:form>
 	</div>

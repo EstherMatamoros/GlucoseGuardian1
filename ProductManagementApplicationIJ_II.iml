@@ -24,7 +24,9 @@
     <orderEntry type="library" name="apache.struts.struts2.dojo.plugin" level="project" />
     <orderEntry type="library" name="commons-fileupload-1.4" level="project" />
     <orderEntry type="library" name="commons-fileupload-1.41" level="project" />
-    <orderEntry type="library" name="@types/chart.js" level="application" />
+    <orderEntry type="library" name="apache.struts.struts2.convention.plugin" level="project" />
     <orderEntry type="library" name="chart.js" level="application" />
+    <orderEntry type="library" name="@types/chart.js" level="application" />
+    <orderEntry type="library" name="font-awesome" level="application" />
   </component>
 </module>

@@ -16,6 +16,7 @@ public class medicationManagementAction extends ActionSupport {
     private String date_started;
     private String date_end;
     private Integer user_id;
+    private Integer id;
 
     public void initializeProducts() {
         System.out.println("****** Filter Data ******");
@@ -91,6 +92,14 @@ public class medicationManagementAction extends ActionSupport {
         this.user_id = user_id;
     }
 
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
     @Override
     public String toString() {
         return "medicationManagementAction{" +
@@ -101,6 +110,7 @@ public class medicationManagementAction extends ActionSupport {
                 ", date_started='" + date_started + '\'' +
                 ", date_end='" + date_end + '\'' +
                 ", user_id=" + user_id +
+                ", id=" + id +
                 '}';
     }
 }
