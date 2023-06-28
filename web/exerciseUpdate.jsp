@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Add Exercise</title>
+<title>Update Exercise</title>
 <link rel="stylesheet" href="css/style-welcome.css">
 	<pippo:head />
 </head>

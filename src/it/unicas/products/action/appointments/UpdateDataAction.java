@@ -18,7 +18,6 @@ public class UpdateDataAction extends ActionSupport implements SessionAware {
     private AppointmentsInfo appointmentsInfo;
 
     public String execute() {
-        System.out.println("execute() in updateDataAction method called");
         appointmentsInfo = appointmentManagementDAO.getAppointmentByID(appointments_id);
         sessionMap.put("appointmentsInfoToUpdate", appointmentsInfo);
 

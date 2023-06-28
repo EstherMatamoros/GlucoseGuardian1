@@ -74,8 +74,6 @@ public class UpdateAction extends ActionSupport implements SessionAware {
 	public String execute() {
 		String statusCode = "";
 		Integer userId = (Integer) ServletActionContext.getRequest().getSession().getAttribute("loggedInUserId");
-
-		// Retrieve the glucose object from the session
 		ExerciseInfo exerciseInfoToUpdate = (ExerciseInfo) sessionMap.get("exerciseInfoToUpdate");
 
 		// Set the properties for updating
@@ -86,10 +84,6 @@ public class UpdateAction extends ActionSupport implements SessionAware {
 
 		// Perform the update
 		int recordUpdated = exerciseManagementDAO.updateExerciseInfo(exerciseInfoToUpdate);
-		System.out.println(" exerciseManagementDAO.updateExerciseInfo(exerciseInfoToUpdate) : " + exerciseInfoToUpdate);
-
-		System.out.println(" Update Action exerciseInfo recordUpdated : " + recordUpdated);
-
 		if (recordUpdated == 1) {
 			statusCode = "success";
 		} else {

@@ -81,9 +81,6 @@ public class UpdateAction extends ActionSupport implements SessionAware {
 
 		// Perform the update
 		int recordUpdated = dietManagementDAO.updateDietInfo(dietInfoToUpdate);
-		System.out.println(" exerciseManagementDAO.updateExerciseInfo(exerciseInfoToUpdate) : " + dietInfoToUpdate);
-
-		System.out.println(" Update Action exerciseInfo recordUpdated : " + recordUpdated);
 
 		if (recordUpdated == 1) {
 			statusCode = "success";

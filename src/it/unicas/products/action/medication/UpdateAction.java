@@ -86,10 +86,6 @@ public class UpdateAction extends ActionSupport implements SessionAware {
 
 		// Perform the update
 		int recordUpdated = medicationManagementDAO.updateMedication(medicationInfoToUpdate);
-		System.out.println(" exerciseManagementDAO.updateExerciseInfo(exerciseInfoToUpdate) : " + medicationInfoToUpdate);
-
-		System.out.println(" Update Action exerciseInfo recordUpdated : " + recordUpdated);
-
 		if (recordUpdated == 1) {
 			statusCode = "success";
 		} else {

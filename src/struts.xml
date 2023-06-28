@@ -25,25 +25,6 @@
 			<result name="success">/welcome.jsp</result>
 			<result name="input">/welcomepage.jsp</result>
 		</action>
-		<action name="addAction" class="it.unicas.products.action.AddAction">
-			<result name="success" type="redirect">/welcome.jsp</result>
-			<result name="error">/error.jsp</result>
-			<result name="input">/addProduct.jsp</result>
-		</action>
-		<action name="updateDataAction" class="it.unicas.products.action.UpdateDataAction">
-			<result name="success">/updateProduct.jsp</result>
-			<result name="error">/error.jsp</result>
-		</action>
-		<action name="updateAction" class="it.unicas.products.action.UpdateAction">
-			<result name="success" type="redirect">welcomeAction</result>
-			<result name="error">/error.jsp</result>
-			<result name="input">/updateProduct.jsp</result>
-		</action>
-		<action name="deleteAction" class="it.unicas.products.action.DeleteAction">
-			<result name="success" type="redirect">welcomeAction</result>
-			<result name="error">/error.jsp</result>
-		</action>
-
 
 <!--  beginning of users //////////////////////////////////////////////////////////////////////-->
 		<action name="usersAddAction" class="it.unicas.products.action.users.AddAction">

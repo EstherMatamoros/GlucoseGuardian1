@@ -87,7 +87,6 @@ public class UpdateAction extends ActionSupport implements SessionAware {
 
 		// Perform the update
 		int recordUpdated = glucoseManagementDAO.updateGlucose(glucoseToUpdate, timestamp);
-		System.out.println(" Update Action glucose recordUpdated : " + recordUpdated);
 
 		if (recordUpdated == 1) {
 			statusCode = "success";

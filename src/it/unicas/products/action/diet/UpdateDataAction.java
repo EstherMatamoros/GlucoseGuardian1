@@ -18,7 +18,6 @@ public class UpdateDataAction extends ActionSupport implements SessionAware {
     private DietInfo dietInfo;
 
     public String execute() {
-        System.out.println("execute() in updateDataAction method called");
         dietInfo = dietManagementDAO.getDietByID(diet_id);
         sessionMap.put("dietInfoToUpdate", dietInfo);
 

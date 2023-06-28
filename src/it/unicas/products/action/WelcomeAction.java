@@ -1,69 +1,98 @@
 package it.unicas.products.action;
 
 import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
 
 import com.opensymphony.xwork2.ActionSupport;
-
-import it.unicas.products.dao.ProductManagementDAO;
-import it.unicas.products.pojo.Product;
+import it.unicas.products.dao.appointmentManagementDAO;
+import it.unicas.products.pojo.AppointmentsInfo;
+import org.apache.struts2.ServletActionContext;
 
 public class WelcomeAction extends ActionSupport{
-	
-	private List<Product> products;
-	private String productName;
-	private String productCategory;
-	private Date createdDate;
-	
+	private List<AppointmentsInfo> appointmentsInfos;
+	private Integer appointments_id;
+	private String area;
+	private String date;
+	private String doctor_name;
+	private Integer user_id;
+
 	public void initializeProducts() {
 		System.out.println("****** Filter Data ******");
-		System.out.println(productName);
-		System.out.println(productCategory);
-		System.out.println(createdDate);
+		System.out.println(area);
+		System.out.println(doctor_name);
+		System.out.println(date);
 		String createdDateStr = "";
-		if(createdDate != null) {
+		user_id = (Integer) ServletActionContext.getRequest().getSession().getAttribute("loggedInUserId"); // Assign the value to the class field
+
+		if(date != null) {
 			SimpleDateFormat formatter = new SimpleDateFormat("dd-MMM-yyyy");
-			createdDateStr = formatter.format(createdDate);
+			createdDateStr = formatter.format(date);
 		}
-		products = ProductManagementDAO.getAllProducts(productName, productCategory, createdDateStr); 
+		appointmentsInfos = appointmentManagementDAO.getAllAppointments(area,createdDateStr,doctor_name, user_id);
 	}
-	
+
 	public String execute() {
 		initializeProducts();
 		return "success";
 	}
 
-	public List<Product> getProducts() {
-		return products;
+	public List<AppointmentsInfo> getAppointmentsInfos() {
+		return appointmentsInfos;
 	}
 
-	public void setProducts(List<Product> products) {
-		this.products = products;
+	public void setAppointmentsInfos(List<AppointmentsInfo> appointmentsInfos) {
+		this.appointmentsInfos = appointmentsInfos;
 	}
 
-	public String getProductName() {
-		return productName;
+	public Integer getAppointments_id() {
+		return appointments_id;
 	}
 
-	public void setProductName(String productName) {
-		this.productName = productName;
+	public void setAppointments_id(Integer appointments_id) {
+		this.appointments_id = appointments_id;
 	}
 
-	public String getProductCategory() {
-		return productCategory;
+	public String getArea() {
+		return area;
 	}
 
-	public void setProductCategory(String productCategory) {
-		this.productCategory = productCategory;
+	public void setArea(String area) {
+		this.area = area;
 	}
 
-	public Date getCreatedDate() {
-		return createdDate;
+	public String getDate() {
+		return date;
 	}
 
-	public void setCreatedDate(Date createdDate) {
-		this.createdDate = createdDate;
+	public void setDate(String date) {
+		this.date = date;
 	}
-	
+
+	public String getDoctor_name() {
+		return doctor_name;
+	}
+
+	public void setDoctor_name(String doctor_name) {
+		this.doctor_name = doctor_name;
+	}
+
+	public Integer getUser_id() {
+		return user_id;
+	}
+
+	public void setUser_id(Integer user_id) {
+		this.user_id = user_id;
+	}
+
+	@Override
+	public String toString() {
+		return "appointmentManagementAction{" +
+				"appointmentsInfos=" + appointmentsInfos +
+				", appointments_id=" + appointments_id +
+				", area='" + area + '\'' +
+				", date='" + date + '\'' +
+				", doctor_name='" + doctor_name + '\'' +
+				", user_id=" + user_id +
+				'}';
+	}
 }

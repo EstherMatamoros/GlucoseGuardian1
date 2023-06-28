@@ -75,8 +75,6 @@ public class UpdateAction extends ActionSupport implements SessionAware {
 	public String execute() {
 		String statusCode = "";
 		Integer userId = (Integer) ServletActionContext.getRequest().getSession().getAttribute("loggedInUserId");
-
-		// Retrieve the glucose object from the session
 		AppointmentsInfo appointmentsInfoToUpdate = (AppointmentsInfo) sessionMap.get("appointmentsInfoToUpdate");
 
 		// Set the properties for updating

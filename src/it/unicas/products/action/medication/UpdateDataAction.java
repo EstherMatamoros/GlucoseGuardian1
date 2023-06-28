@@ -19,11 +19,8 @@ public class UpdateDataAction extends ActionSupport implements SessionAware {
 
 
     public String execute() {
-        System.out.println("execute() in updateDataAction method called");
         medicationInfo = medicationManagementDAO.getMedicationByID(id);
         sessionMap.put("medicationInfoToUpdate", medicationInfo);
-
-        System.out.print("updateDataAction medicationInfo = medicationManagementDAO.getMedicationByID(id)" + medicationInfo);
 
         if (medicationInfo != null) {
             return SUCCESS;

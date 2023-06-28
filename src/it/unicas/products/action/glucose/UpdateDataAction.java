@@ -21,16 +21,9 @@ public class UpdateDataAction extends ActionSupport implements SessionAware {
 
 
     public String execute() {
-        System.out.println("execute() in updateDataAction method called");
-
         // Fetch the glucose record based on id and timestamp
         glucose = glucoseManagementDAO.getGlucoseByIDAndTimestamp(id, timestamp);
-        System.out.print("updateDataAction glucoseManagementDAO.getGlucoseByIDAndTimestamp(id, timestamp)");
-        System.out.println(glucose);
         sessionMap.put("glucoseToUpdate", glucose);
-
-
-
         if (glucose != null) {
             return SUCCESS;
         } else {

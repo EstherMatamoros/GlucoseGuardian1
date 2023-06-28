@@ -17,7 +17,6 @@ public class UpdateDataAction extends ActionSupport implements SessionAware {
     private ExerciseInfo exerciseInfo;
 
     public String execute() {
-        System.out.println("execute() in updateDataAction method called");
         exerciseInfo = exerciseManagementDAO.getExerciseByID(exercise_id);
         sessionMap.put("exerciseInfoToUpdate", exerciseInfo);
 

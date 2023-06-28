@@ -1,18 +1,12 @@
 package it.unicas.products.action.exercise;
 
 import com.opensymphony.xwork2.ActionSupport;
-import it.unicas.products.dao.ProductManagementDAO;
-import it.unicas.products.dao.dietManagementDAO;
 import it.unicas.products.dao.exerciseManagementDAO;
-import it.unicas.products.pojo.DietInfo;
 import it.unicas.products.pojo.ExerciseInfo;
-import it.unicas.products.pojo.Product;
 import org.apache.struts2.ServletActionContext;
 
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.Date;
-import java.util.Formatter;
 import java.util.List;
 
 public class exerciseManagementAction extends ActionSupport {

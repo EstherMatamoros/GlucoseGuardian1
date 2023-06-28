@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Add New meal</title>
+<title>Update meal</title>
 <link rel="stylesheet" href="css/style.css">
 	<pippo:head />
 </head>

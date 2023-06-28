@@ -20,12 +20,10 @@
 			<s:textfield name="name" label="Name of medication" class="formTextField"/>
 			<s:textfield name="dose" label="Recommended Dose (mg)" class="formTextField"/>
 			<s:textfield name="treatment_for" label="Treatment for" class="formTextField"/>
-<%--			<pippo:datetimepicker name="date_started" label="Treatment started on" displayFormat="dd-MMM-yyyy"/>--%>
 			<s:textfield name="date_started" label="Treatment started on" class="formTextField">
 				<s:param name="type">date</s:param>
 				<s:param name="displayFormat">dd-MMM-yyyy</s:param>
 			</s:textfield>
-<%--			<pippo:datetimepicker name="date_end" label="Treatment should end on" displayFormat="dd-MMM-yyyy"/>--%>
 			<s:textfield name="date_end" label="Treatment should end on" class="formTextField">
 				<s:param name="type">date</s:param>
 				<s:param name="displayFormat">dd-MMM-yyyy</s:param>

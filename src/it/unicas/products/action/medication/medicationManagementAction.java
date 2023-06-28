@@ -26,8 +26,6 @@ public class medicationManagementAction extends ActionSupport {
         System.out.println(date_started);
         System.out.println(date_end);
         user_id = (Integer) ServletActionContext.getRequest().getSession().getAttribute("loggedInUserId"); // Assign the value to the class field
-
-
         medicationInfos = medicationManagementDAO.getAllMedications(name, dose, treatment_for, date_started, date_end, user_id);
     }
 

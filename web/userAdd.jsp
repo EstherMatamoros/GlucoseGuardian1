@@ -37,7 +37,7 @@
 		}
 
 		.heading {
-			color: green;
+			color: dodgerblue;
 		}
 
 		.title {

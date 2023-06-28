@@ -30,8 +30,6 @@ public class glucoseManagementAction extends ActionSupport {
             createdDateStr = formatter.format(createdDate);
         }
         glucoses = glucoseManagementDAO.getAllGlucose(measurement, createdDateStr, user_id);
-        System.out.println("glucoseManagementDAO.getAllGlucose(measurement, createdDateStr, user_id); glucoses" + glucoses);
-
     }
 
     public String execute() {

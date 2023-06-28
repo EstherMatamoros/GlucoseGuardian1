@@ -65,8 +65,6 @@ public class glucoseManagementDAO {
             ps.setTimestamp(2, timestamp);
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
-//                Integer measurement = rs.getInt("measurement");
-//                String createdDate = rs.getString("createdDate");
                 int userId = rs.getInt("user_id");
                 glucose = new Glucose(rs.getInt("measurement"), rs.getString("createdDate"));
                 glucose.setId(id);
@@ -117,10 +115,7 @@ public class glucoseManagementDAO {
             ps.setString(2, glucose.getCreatedDate());
             ps.setInt(3, glucose.getId());
             ps.setInt(4, glucose.getUser_id());
-            System.out.println("PreparedStatement: " + ps); // Debug print
             status = ps.executeUpdate();
-            System.out.println(" in glucoseManagementDAO, updateGlucose() try method called");
-            System.out.println("Record updated: " + status); // Debug print
         } catch (Exception e) {
             e.printStackTrace();
         }
